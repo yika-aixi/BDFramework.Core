@@ -211,7 +211,7 @@ namespace BDFramework
          
         }
 
-        //更快的帧循环
+        //后帧循环
         private void LateUpdate()
         {
             if(mainStart!=null) mainStart.LateUpdate();
