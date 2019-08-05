@@ -168,9 +168,9 @@ namespace BDFramework
             {
                 if (GameId != "")
                 {
-                    artroot = artroot + "/" + GameId;
-                    coderoot = coderoot + "/" + GameId;
-                    sqlroot = sqlroot + "/" + GameId;
+                    artroot = Path.Combine(artroot, GameId);
+                    coderoot = Path.Combine(coderoot, GameId);
+                    sqlroot = Path.Combine(sqlroot,GameId);
                 }
             }
 
