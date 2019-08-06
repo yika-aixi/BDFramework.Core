@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net.Mime;
 using System.Reflection;
+using Code.BDFramework.Core.Tools;
 using LitJson;
 using Microsoft.Cci.Pdb;
 using UnityEngine;
@@ -116,35 +117,11 @@ namespace BDFramework.UI
                     var name = bAttr.Name;
                     var _Model = view.Model;
                     //注册属性名
-                    _Model.AddData(bAttr.Name);
+                    _Model.AddData(name);
                     //注册事件监听
-                    _Model.AddListener(bAttr.Name , (v) =>
+                    _Model.AddListener(name , (v) =>
                     {
-                        if (f.FieldType == typeof(Text))
-                        {
-                            var c = f.GetValue(view) as Text;
-                            c.text = v.ToString();
-                        }
-                        
-                        else if (f.FieldType == typeof(Slider))
-                        {
-                            var c = f.GetValue(view) as Slider;
-                            c.value = (float)v;
-                        }
-                        else if (f.FieldType == typeof(Scrollbar))
-                        {
-                            var c = f.GetValue(view) as Scrollbar;
-                            c.value = (float)v;
-                        }
-                        else if (f.FieldType == typeof(Toggle))
-                        {
-                            var c = f.GetValue(view) as Toggle;
-                            c.isOn = (bool)v;
-                        }
-                        else
-                        {
-                            BDebug.LogError("不支持类型,请扩展：" + f.Name  + "-"+ vt.FullName);
-                        }
+                        f.ModelBind(view,v);
                     });
                 }
             }
