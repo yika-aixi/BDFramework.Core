@@ -118,7 +118,7 @@ namespace Game.UI
                     //注册事件监听
                     _Model.AddListener(name , (v) =>
                     {
-                        f.ModelBind(mIView,v);
+                        IViewExtension.ModelBind(f,mIView,v);
                     });
                 }
             }

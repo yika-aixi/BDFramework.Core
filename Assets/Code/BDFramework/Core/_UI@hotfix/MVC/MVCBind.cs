@@ -121,7 +121,7 @@ namespace BDFramework.UI
                     //注册事件监听
                     _Model.AddListener(name , (v) =>
                     {
-                        f.ModelBind(view,v);
+                        view.ModelBind(f,v);
                     });
                 }
             }

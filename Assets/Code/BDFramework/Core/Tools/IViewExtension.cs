@@ -7,13 +7,19 @@
 
 using System.Reflection;
 using BDFramework.UI;
+using Game.UI;
 using UnityEngine.UI;
 
 namespace Code.BDFramework.Core.Tools
 {
     public static class IViewExtension
     {
-        public static void ModelBind(this FieldInfo self,object view,object value)
+        public static void ModelBind(this IView self,FieldInfo fieldInfo,object value)
+        {
+            ModelBind(fieldInfo, self, value);
+        }
+
+        public static void ModelBind(FieldInfo self,object view,object value)
         {
             var com = self.GetValue(view);
             switch (com)
