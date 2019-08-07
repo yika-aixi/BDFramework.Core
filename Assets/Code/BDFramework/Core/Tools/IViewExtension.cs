@@ -14,16 +14,34 @@ namespace Code.BDFramework.Core.Tools
 {
     public static class IViewExtension
     {
+        /// <summary>
+        /// 数据绑定
+        /// </summary>
+        /// <param name="self">页面</param>
+        /// <param name="fieldInfo">字段</param>
+        /// <param name="value">值</param>
         public static void ModelBind(this IView self,FieldInfo fieldInfo,object value)
         {
             ModelBind(fieldInfo, self, value);
         }
 
+        /// <summary>
+        /// 事件处理绑定
+        /// </summary>
+        /// <param name="self">页面</param>
+        /// <param name="fieldInfo">字段</param>
+        /// <param name="viewControl">页面逻辑,事件的处理方法从这里寻找</param>
         public static void MethodBind(this IView self, FieldInfo fieldInfo, IViewControl viewControl)
         {
             MethodBind(fieldInfo, self, viewControl);
         }
 
+        /// <summary>
+        /// 事件处理绑定
+        /// </summary>
+        /// <param name="fieldInfo">字段</param>
+        /// <param name="view">页面</param>
+        /// <param name="viewControl">页面逻辑,事件的处理方法从这里寻找</param>
         public static void MethodBind(FieldInfo fieldInfo,object view, object viewControl)
         {
             var controlType = viewControl.GetType();
@@ -79,6 +97,12 @@ namespace Code.BDFramework.Core.Tools
             BDebug.Log(string.Format("ui事件未实现:{0} - {1}" ,fieldInfo.GetType().FullName , fieldInfo.Name )  , "yellow");
         }
 
+        /// <summary>
+        /// 数据绑定
+        /// </summary>
+        /// <param name="fieldInfo">字段</param>
+        /// <param name="view">页面</param>
+        /// <param name="value">值</param>
         public static void ModelBind(FieldInfo fieldInfo,object view,object value)
         {
             var com = fieldInfo.GetValue(view);
