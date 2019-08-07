@@ -76,3 +76,7 @@
 /BDFramework/obj
 /Logs
 /.gradle
+/ProjectSettings/ProjectVersion.txt
+/Assets/Plugins/Editor/JetBrains
+/Assets/Plugins/Editor/JetBrains.meta
+/*.sln
